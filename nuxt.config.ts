@@ -46,6 +46,12 @@ const config: Configuration = {
      ** You can extend webpack config here
      */
     extend(_config, _ctx) {}
+  },
+  // https://content.nuxtjs.org/configuration
+  content: {
+    markdown: {
+      plugins: ['remark-excerpt']
+    }
   }
 }
 

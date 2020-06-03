@@ -3,6 +3,18 @@ title: Introduction
 author: Nahoko Matsui
 ---
 
+## Header
+
+Paragraph 1.
+
+Paragraph 2.
+
+<!-- excerpt -->
+
+Paragraph 3.
+
+Paragraph 4.
+
 ## Links
 
 <nuxt-link to="/articles">Nuxt Link to Blog</nuxt-link>

@@ -5,7 +5,10 @@
     </h1>
     <div class="articles">
       <div v-for="article in articles" :key="article.slug" class="article">
-        <div class="article__card">
+        <nuxt-link
+          :to="{ name: 'articles-slug', params: { slug: article.slug } }"
+          class="article__card"
+        >
           <div class="article__header"></div>
           <div class="article__content">
             <div class="article__title">{{ article.title }}</div>
@@ -19,7 +22,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -92,6 +95,7 @@ export default Vue.extend({
   background-color: #fff;
   border-radius: 0.2rem;
   overflow: hidden;
+  display: block;
 }
 
 .article__header {
