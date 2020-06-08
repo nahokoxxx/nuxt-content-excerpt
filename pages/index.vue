@@ -31,15 +31,16 @@
 <script lang="ts">
 import Vue from 'vue'
 import dayjs from 'dayjs'
+import { Article } from '@/types/Article'
 
 export default Vue.extend({
-  async asyncData({ app }) {
-    const articles = await app.$content('articles').fetch()
+  async asyncData({ $content }) {
+    const articles = await $content('articles').fetch<Article[]>()
     return { articles }
   },
   data() {
     return {
-      articles: [] as Object[]
+      articles: [] as Article[]
     }
   },
   methods: {
