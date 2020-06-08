@@ -12,6 +12,7 @@
           <div class="article__header"></div>
           <div class="article__content">
             <div class="article__title">{{ article.title }}</div>
+            <div class="article__excerpt">{{ article.excerpt }}</div>
             <div class="article__footer">
               <div class="article__avatar"></div>
               <div class="article__footer__content">
@@ -113,6 +114,10 @@ export default Vue.extend({
 .article__title {
   font-weight: bold;
   font-size: 1.25rem;
+}
+
+.article__excerpt {
+  margin-top: 0.5rem;
 }
 
 .article__footer {

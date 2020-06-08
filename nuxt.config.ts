@@ -1,4 +1,9 @@
 import { Configuration } from '@nuxt/types'
+import remark from 'remark'
+// @ts-ignore
+import remarkExcerpt from 'remark-excerpt'
+// @ts-ignore
+import retextStringify from 'retext-stringify'
 
 const config: Configuration = {
   mode: 'universal',
@@ -47,10 +52,16 @@ const config: Configuration = {
      */
     extend(_config, _ctx) {}
   },
-  // https://content.nuxtjs.org/configuration
-  content: {
-    markdown: {
-      plugins: ['remark-excerpt']
+  hooks: {
+    // @ts-ignore
+    'content:file:beforeInsert': async (document) => {
+      if (document.extension === '.md') {
+        const processed = await remark()
+          .use(remarkExcerpt)
+          .use(retextStringify)
+          .process(document.text)
+        document.excerpt = processed.contents
+      }
     }
   }
 }
