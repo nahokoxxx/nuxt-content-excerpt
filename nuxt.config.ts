@@ -1,4 +1,6 @@
 import { Configuration } from '@nuxt/types'
+// @ts-ignore
+import remarkExcerpt from 'remark-excerpt'
 
 const config: Configuration = {
   mode: 'universal',
@@ -47,10 +49,13 @@ const config: Configuration = {
      */
     extend(_config, _ctx) {}
   },
-  // https://content.nuxtjs.org/configuration
-  content: {
-    markdown: {
-      plugins: ['remark-excerpt']
+  hooks: {
+    // @ts-ignore
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        const excerptTransformer = remarkExcerpt()
+        document.excerpt = excerptTransformer(document.text)
+      }
     }
   }
 }
