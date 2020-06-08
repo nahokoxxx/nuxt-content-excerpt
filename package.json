@@ -16,7 +16,9 @@
     "@nuxt/typescript-runtime": "^0.4.0",
     "dayjs": "^1.8.28",
     "nuxt": "^2.0.0",
-    "remark-excerpt": "^1.0.0-beta.1"
+    "remark": "^12.0.0",
+    "remark-excerpt": "^1.0.0-beta.1",
+    "retext-stringify": "^2.0.4"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
